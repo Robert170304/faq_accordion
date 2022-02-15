@@ -1,0 +1,199 @@
+
+:root{
+    --text-blue: hsl(238, 29%, 16%);
+    --text-dkblue: hsl(240, 6%, 50%);
+    --text-xdarkblue: hsl(237, 12%, 33%);
+    --text-red: hsl(14, 88%, 65%);
+    --gradient-violet: hsl(273, 75%, 66%);
+    --gradient-blue: hsl(240, 73%, 65%);
+    --divider-blue: hsl(240, 5%, 91%);
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+body {
+   /* min-height: 100vh; */
+   margin: 150px -30px 0px -30px;
+    /* padding: 10rem 1rem; */
+    font-family: 'Kumbh Sans', sans-serif;
+    background-image: linear-gradient(
+        var(--gradient-violet), 
+        var(--gradient-blue));
+    color: var(--text-blue);
+}
+
+h1, h2, h3{
+    margin-top: 0;
+}
+
+.card{
+    background: white;
+    border-radius: 2rem;
+    max-width: 56rem;
+    margin: 3rem; 
+    padding: 2.875rem 1.5rem ;
+    background-image: url(./images/bg-pattern-mobile.svg);
+    background-repeat: no-repeat;
+    background-position: center 0%;
+    background-size: 15rem;
+}
+
+.card-box{
+    display: none;
+}
+
+.card-img{
+    position: relative;
+}
+
+.card-img img{
+    position: absolute;
+    top: -9.8rem; /*-6.8rem removed*/
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: auto;
+    max-width: 15rem;
+    margin: auto;
+    display: block;
+}
+
+.card-text{
+    padding-top: 7rem;
+}
+h1{
+    text-align: center;
+}
+.accordion-item{
+    padding-top: 1rem;
+    border-bottom: 1px solid var(--divider-blue);
+}
+.accordion-item h2{
+    margin-bottom: 0;
+}
+
+.accordion-que{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: transparent;
+    padding: 0.2rem;
+    font-size: 0.875rem; 
+    font-family: 'Kumbh Sans', sans-serif;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.accordion-que::after{
+    content: '';
+    display: block;
+    width: 0.625rem;
+    height: 1rem;
+    border: none;
+    background-image: url(./images/icon-arrow-down.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    transition: transform 300ms ease-in-out;
+} 
+.accordion-que:focus,
+.accordion-que:focus-visible{
+    border: none;
+    outline: 1px dashed rgba(0, 0, 0, 0.25);
+
+}
+.accordion-que.open{
+    font-weight: 700; 
+}
+.accordion-que.open::after{
+    transform: rotate(180deg);
+}
+
+.accordion-ans{
+    font-size: 0.75rem;
+    line-height: 1.4;
+    padding-bottom: 1rem; 
+}
+
+.accordion-close{
+    transition: height .3s ease;
+}
+.accordion-close.collapse{
+    display: none;
+}
+
+.accordion-close.collapsing{
+   height: 0;
+   overflow: hidden;
+   
+}
+.accordion-close.open{
+   display: block;
+}
+
+/* for desktop */
+@media (min-width: 56em) {
+    
+    body{
+        padding: 5rem;
+        min-height: 100vh;
+        margin: 0;
+        padding: 10rem 1rem;
+        font-family: 'Kumbh Sans', sans-serif;
+        background-image: linear-gradient(
+            var(--gradient-violet), 
+            var(--gradient-blue));
+        color: var(--text-blue);
+    }
+    .card{
+      position: relative;
+      display: flex;  
+      margin: 0 auto;
+      padding: 4.375rem 6.25rem 4.375rem 0;
+      background-image: url(./images/bg-pattern-desktop.svg);
+      background-size: 80%;
+      background-repeat: no-repeat;
+      background-position: top -150px left -218%
+    }
+    .card-box{
+        display: block; /*block*/
+        position: absolute;
+        top: 59%;
+        left: 0;
+        margin: 0 auto;
+        transform: translateX(-50%) translateY(-50%);
+        z-index: 1;
+    }
+    .card-img, .card-text{
+        flex: 1;
+    }
+    .card-img{
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+    .card-img img{
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: translateX(-65px);
+        max-width: 25rem;
+    }
+    .card-text{
+        padding-top: 0;
+    }
+    h1{
+        text-align: left;
+    }
+}
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
